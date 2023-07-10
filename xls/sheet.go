@@ -3,6 +3,7 @@ package xls
 import (
 	"bytes"
 	"fmt"
+
 	"github.com/shakinm/xlsReader/helpers"
 	"github.com/shakinm/xlsReader/xls/record"
 	"github.com/shakinm/xlsReader/xls/structure"
@@ -23,6 +24,13 @@ type Sheet struct {
 
 func (s *Sheet) GetName() string {
 	return s.boundSheet.GetName()
+}
+
+func (s *Sheet) IsVisible() bool {
+	if s.boundSheet.Grbit[0] == 0 {
+		return true
+	}
+	return false
 }
 
 // Get row by index
@@ -105,13 +113,13 @@ func (s *Sheet) read(stream []byte) (err error) { // nolint: gocyclo
 	point = int64(helpers.BytesToUint32(s.boundSheet.LbPlyPos[:]))
 	var sPoint int64
 	eof := false
-	records := make(map[string]string )
+	records := make(map[string]string)
 Next:
 
 	recordNumber := stream[point : point+2]
 	recordDataLength := int64(helpers.BytesToUint16(stream[point+2 : point+4]))
 	sPoint = point + 4
-	records[fmt.Sprintf("%x",recordNumber)]=fmt.Sprintf("%x",recordNumber)
+	records[fmt.Sprintf("%x", recordNumber)] = fmt.Sprintf("%x", recordNumber)
 	if bytes.Compare(recordNumber, record.AutofilterInfoRecord[:]) == 0 {
 		c := new(record.AutofilterInfo)
 		c.Read(stream[sPoint : sPoint+recordDataLength])
