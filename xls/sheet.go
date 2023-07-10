@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/shakinm/xlsReader/helpers"
-	"github.com/shakinm/xlsReader/xls/record"
-	"github.com/shakinm/xlsReader/xls/structure"
+	"github.com/twominutestomidnight/xlsReader/helpers"
+	"github.com/twominutestomidnight/xlsReader/xls/record"
+	"github.com/twominutestomidnight/xlsReader/xls/structure"
 )
 
 type rw struct {

@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/metakeule/fmtdate"
-	"github.com/shakinm/xlsReader/helpers"
-	"github.com/shakinm/xlsReader/xls/structure"
+	"github.com/twominutestomidnight/xlsReader/helpers"
+	"github.com/twominutestomidnight/xlsReader/xls/structure"
 	"strconv"
 	"strings"
 )

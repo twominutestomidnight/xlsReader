@@ -3,7 +3,7 @@ package cfb
 import (
 	"bytes"
 	"encoding/binary"
-	"github.com/shakinm/xlsReader/helpers"
+	"github.com/twominutestomidnight/xlsReader/helpers"
 	"io"
 	"os"
 	"path/filepath"
